@@ -1,40 +1,48 @@
 import React from 'react';
-import { useDrag } from 'react-dnd';
-import { Card, CardContent, Typography } from '@mui/material';
+import {useDrag} from 'react-dnd';
+import {Card, CardContent, Typography} from '@mui/material';
+import "../../css/TaskCard.css";
+import "../../css/StatusStyles.css"; // Shared styles for statuses
+import {getStatusClass} from "../../utils/utils";
 
-const TaskCard = ({ task, isAssigned = false }) => {
-    const [{ isDragging }, drag] = useDrag(() => ({
+const TaskCard = ({task, isAssigned = false}) => {
+    const {jobId, jobStatus, orderType, timeSlot, address} = task;
+    const [{isDragging}, drag] = useDrag(() => ({
         type: 'TASK',
         item: isAssigned
-            ? { id: task.id, currentUser: task.user, currentTime: task.time }
-            : { id: task.id },
+            ? {id: jobId, currentUser: task.user, currentTime: task.time}
+            : {id: jobId},
         collect: (monitor) => ({
             isDragging: monitor.isDragging(),
         }),
     }));
 
     return (
-        <Card
-            ref={drag}
-            sx={{
-                backgroundColor: '#f5f5f5',
-                opacity: isDragging ? 0.5 : 1,
-                cursor: 'grab',
-                width: '100%',
-                height: '70%',
-                borderRadius: '8px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-            }}
+        <div ref={drag}
+             className={`task-card card ${isDragging ? "dragging" : ""}`}
+             style={{
+                 border: "1px solid #ddd",
+                 borderRadius: "8px",
+                 padding: "10px",
+                 marginBottom: "10px",
+                 backgroundColor: "#fff",
+                 opacity: isDragging ? 0.5 : 1,
+                 cursor: "grab",
+             }}
         >
-            <CardContent>
-                <Typography variant="body1" align="center">
-                    {task.name}
-                </Typography>
-            </CardContent>
-        </Card>
+            <p>
+                <strong>{jobId}</strong>
+            </p>
+            <div className={`job-status`}>
+                <span className={`chip ${getStatusClass(jobStatus)}`}>
+                    <span className="chip-content"><strong>{jobStatus}</strong></span>
+                </span>
+            </div>
+            <p>
+                <strong>{address.city}</strong>, <strong>{address.state}</strong>
+            </p>
+
+        </div>
     );
 };
 

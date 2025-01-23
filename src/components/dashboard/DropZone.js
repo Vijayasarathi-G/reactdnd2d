@@ -16,6 +16,7 @@ const DropZone = ({user, time, isUnassigned = false}) => {
             const {id, currentUser, currentTime} = item;
 
             const isUserNotAvailable = users.some((user1) => user1.name === user.name && user1.status === 'Not Available');
+            console.log({item})
             if (isUserNotAvailable) {
                 alert(`${user.name} is not available.`);
                 return;
@@ -52,7 +53,7 @@ const DropZone = ({user, time, isUnassigned = false}) => {
         <Box
             ref={drop}
             sx={{
-                height: '80px',
+                height: '115px',
                 width: '100%',
                 backgroundColor: isOver ? 'lightblue' : 'white',
                 border: isOver ? '2px dashed blue' : '1px solid #ccc',

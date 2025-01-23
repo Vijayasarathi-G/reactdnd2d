@@ -1,0 +1,157 @@
+.status {
+    font-weight: bold;
+}
+
+.status-cmp {
+    background-color: skyblue;
+    color: dodgerblue;
+}
+
+.status-ons {
+    background-color: palegreen;
+    color: green;
+}
+
+.status-asg {
+    background-color: bisque;
+    color: orange;
+}
+
+.status-hld {
+    background-color: lightgray;
+    color: black;
+}
+
+.status-can {
+    background-color: palevioletred;
+    color: red;
+}
+
+.status-inr {
+    color: yellow;
+    background-color: peru;
+}
+
+.status-rej {
+    color: white;
+    background-color: black;
+}
+
+.status-slot {
+    color: lightblue;
+}
+
+.status-cap {
+    color: white;
+    background-color: green;
+}
+
+.status-opn {
+    color: white;
+    background-color: dodgerblue;
+}
+
+.status-default {
+    color: gray;
+}
+
+
+
+/*Common card design */
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    transition: opacity 0.2s;
+    font-size: smaller;
+}
+
+.card.dragging {
+    opacity: 0.5;
+}
+
+.status {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+.status.cap {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+.status.opn {
+    background-color: #2196f3;
+    color: #fff;
+}
+
+/* Add styles for other statuses like CMP, HLD, REJ, etc. */
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    transition: opacity 0.2s;
+    min-width: 160px;
+}
+
+.card.dragging {
+    opacity: 0.5;
+}
+
+.status {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+.status.cap {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+.status.opn {
+    background-color: #2196f3;
+    color: #fff;
+}
+
+/* Add styles for other statuses like CMP, HLD, REJ, etc. */
+
+.chip{
+    display: inline-flex;
+    flex-direction: row;
+    /*background-color: #e5e5e5;*/
+    border: none;
+    cursor: default;
+    height: 25px;
+    outline: none;
+    padding: 0;
+    font-size: 12px;
+    font-weight: 600;
+    /*font-color: #333333;*/
+    font-family:"Open Sans", sans-serif;
+    white-space: nowrap;
+    align-items: center;
+    border-radius: 16px;
+    vertical-align: middle;
+    text-decoration: none;
+    justify-content: center;
+}
+.chip-content{
+    cursor: inherit;
+    display: flex;
+    align-items: center;
+    user-select: none;
+    white-space: nowrap;
+    padding-left: 12px;
+    padding-right: 12px;
+}
